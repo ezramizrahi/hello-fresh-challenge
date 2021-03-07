@@ -1,0 +1,14 @@
+{
+  "name": "hellofresh",
+  "version": "1.0.0",
+  "description": "hello fresh take home challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ezra mizrahi",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^6.6.0"
+  }
+}
