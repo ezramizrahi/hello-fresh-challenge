@@ -1,16 +1,18 @@
 name: Create Cypress report
-on: [push]
+on:
+  push:
+    branches:
+      - 'master'
 jobs:
-  cypress-run:
-    runs-on: ubuntu-16.04
-    steps:
+  cypress-e2e-chrome81:
+  name: Run on Chrome 81
+  runs-on: ubuntu-18.04
+  container: cypress/browsers:node12.16.2-chrome81-ff75
+  steps:
     - uses: actions/checkout@v2
-
     - name: Install a project with a clean slate
       run: |
         npm ci
-        $(npm bin)/cypress cache path
-        $(npm bin)/cypress cache list
         $(npm bin)/cypress verify
 
     - name: Run Cypress tests
@@ -21,10 +23,12 @@ jobs:
       run: npm run merge-reports
 
     - name: Generate HTML report
-      run: npm run html-report
+      run: npm run html-reports
 
-    - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./mochawesome-report
+    - name: Deploy report page
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
