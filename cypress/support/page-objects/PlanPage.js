@@ -15,6 +15,29 @@ class PlanPage {
     return cy.get('[data-translation-id="funnel.plansWidget.title"]');
   };
 
+  // Return meal preference title
+  getMealPreferenceTitle() {
+    return cy.get('[data-translation-id*="funnel.plansWidget.mealPreference.title"]');
+  };
+
+  // Return order review title
+  getOrderReviewTitle() {
+    return cy.get('[data-translation-id*="funnel.plansWidget.orderReview.title"]');
+  };
+
+  // Return plan configuration
+  getPlanConfigurationAU() {
+    return cy.get('[data-translation-id="funnel.plansWidget.orderReview.planConfiguration"]');
+  };
+
+  /**
+   * Get number of selected meals or people per week for a selected plan
+   * @param {string} string - meals or people
+   */
+  getPlanConfigurationUS(string) {
+    return cy.get(`[data-translation-id="funnel.plans.number-${string}.option"]`);
+  };
+
   // Returns the plan widget element
   getPlanWidget() {
     return cy.get('[data-test-id="desktop-plans-widget"]');

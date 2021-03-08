@@ -31,6 +31,8 @@ I have chosen to use Cypress to run the tests. I have used Mochawesome to genera
 
 In this task I have aimed to follow best practices within testing and within the Cypress framework. In the `support/page-objects` folder I have created a `PlanPage` PageObject class that is used in the `integration/plan-page/plan-page.spec.js` test file. PageObjects are convenient as they allow us to more easily maintain a test, and allow us to keep duplication to a minimum.
 
+My selector strategy targets elements using the `data-test-id=` and `data-translation-id=` attributes.
+
 Given that the requirements of this state that the tests need to run on both the HelloFresh AU and US domains, I have split the `plan-page/spec.js` test into two sections - one for the AU domain, and one for the US domain. There is some duplication, but it works. The URLs for each domain are stored as `env` variables in the `cypress.json` file.
 
 For both the AU and US domains, I select each plan option in a data driven way by referencing a `preferences` variable that contains the different preferences for each domain. Once clicked, I check that `data-test-is-active` is `true`. I also click through each "Number of people" and "Recipe per week" option for every meal preference. Lastly, I check that the price and shipping cost are not empty, and I log their values in the Cypress test runner.
