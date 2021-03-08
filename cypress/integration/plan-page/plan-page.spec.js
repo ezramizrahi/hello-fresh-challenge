@@ -26,7 +26,7 @@ describe('Select Plans', () => {
       // before clicking on it
       planPage.selectYourPreference(preference.id).should('exist');
       planPage.selectYourPreference(preference.id).should('be.visible');
-      planPage.selectYourPreference(preference.id).click();
+      planPage.selectYourPreference(preference.id).click({force: true});
       // clicks through all Number of People options
       planPage.selectAllPeople();
       // clicks through all Recipes per Week options
@@ -68,7 +68,7 @@ describe('Select Plans', () => {
       // before clicking on it
       planPage.selectYourPreference(preference.id).should('exist');
       planPage.selectYourPreference(preference.id).should('be.visible');
-      planPage.selectYourPreference(preference.id).click();
+      planPage.selectYourPreference(preference.id).click({force: true});
       // clicks through all Number of People options
       planPage.selectAllPeople();
       // clicks through all Recipes per Week options

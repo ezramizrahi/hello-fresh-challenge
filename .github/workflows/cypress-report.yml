@@ -1,5 +1,11 @@
 name: Create Cypress report
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   cypress-e2e-chrome81:
     runs-on: ubuntu-latest
