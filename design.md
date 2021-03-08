@@ -20,13 +20,6 @@ Ensure that the test is data driven and can be run for both HelloFresh AU and He
 In addition, a test report should be generated at the end of the test run. The test report should be published to GitHub pages using GitHub actions.
 
 ## Design
-(2-5 paragraphs) A short and sweet overview of your implementation ideas. If
-you have alternative solutions to a problem, list them concisely in a bullet
-list.  This should not contain every detail of your implementation, and do
-not include code. Use a diagram when necessary. Cover major structural
-elements in a very succinct manner. Which technologies will you use? What
-new components will you write? What technologies will you use to write them?
-
 I have chosen to use Cypress to run the tests. I have used Mochawesome to generate the reports.
 
 In this task I have aimed to follow best practices within testing and within the Cypress framework. In the `support/page-objects` folder I have created a `PlanPage` PageObject class that is used in the `integration/plan-page/plan-page.spec.js` test file. PageObjects are convenient as they allow us to more easily maintain a test, and allow us to keep duplication to a minimum.
