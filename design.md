@@ -38,7 +38,6 @@ For both the AU and US domains, I select each plan option in a data driven way b
 The E2E tests are run on every pull request/merge to the master/main branch via a GitHub actions worfklow. Below is a diagram of this workflow:
 
 ![Workflow](workflow.svg)
-<img src="workflow.svg">
 
 ## Alternative Design
 As stated above, there is duplication in my `plan-page.spec.js` that is not easily scalable over time. At the moment, splitting the AU and US tests into two separate `it(...)` test blocks works, but there is likely a better solution/architectural design.
