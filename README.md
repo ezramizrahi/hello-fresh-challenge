@@ -22,6 +22,8 @@ End-to-end/functional tests for the **Personalize Your Plan** component that sim
 * customizing a plan size,
 * and viewing the price and shipping cost based on the plan selection.
 
+On every pull request/push to the main/master branch, an html report of the test run is generated. You can see it hosted [here on GitHub pages](https://ezramizrahi.github.io/hello-fresh-challenge/).
+
 Please see the `design.md` page for more details on the design of this test.
 
 ### Built With/Uses
