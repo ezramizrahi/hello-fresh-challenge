@@ -1,34 +1,36 @@
 class PlanPage {
 
-  // visit the hello fresh plan page
-  // TODO: MAKE THIS DYNAMIC
+  // Visit HelloFresh AU
   visitAU() {
     cy.visit('https://www.hellofresh.com.au/plans');
   };
 
+  // Visit HelloFresh US
   visitUS() {
     cy.visit('https://www.hellofresh.com/plans');
   };
 
-  // get all plans
-  getPlans() {
+  // Returns the plan widget element
+  getPlanWidget() {
     return cy.get('[data-test-id="desktop-plans-widget"]');
   };
 
-  // get plan preference
+  /**
+   * Get individual plan preferences
+   * @param {string} preference - Plan preference e.g. chefschoice
+   */
   selectYourPreference(preference) {
     return cy.get(`button[data-test-id*="${preference}"]`);
   };
 
-  // select people
-  // takes in string
+  // Select "Number of people"
   selectPeople(n) {
     cy.get('[data-test-id="plans-widget-container"]').within(($widget) => {
       cy.get(`button[data-test-id="size-button-selectors-${n}"]`).click();
     });
   };
 
-  // clicks through all people
+  // Clicks through all possible "Number of people" selections
   selectAllPeople() {
     cy.get('[data-test-id="size-selector"]').within(($people) => {
       cy.get('button').each(($button) => {
@@ -37,12 +39,12 @@ class PlanPage {
     });
   };
 
-  // select recipe
+  // Select "Recipes per week"
   selectRecipesPerWeek(n) {
     return cy.get(`button[data-test-id="meal-button-selectors-${n}"]`);
   };
 
-  // click on each recipe amount per week
+  // Click on each "Recipe per week" button
   selectAllRecipes() {
     cy.get('[data-test-id="meal-button-selectors"]').within(($meal) => {
       cy.get('button').each(($button) => {
@@ -51,12 +53,12 @@ class PlanPage {
     });
   };
 
-  // get price
+  // Returns the price
   getPrice() {
     return cy.get('[data-test-id="discount-price"]');
   };
 
-  // get shipping
+  // Returns the shipping cost
   getShippingCost() {
     return cy.get('[data-test-id="shipping-message-label"]');
   };

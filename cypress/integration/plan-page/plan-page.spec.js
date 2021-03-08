@@ -1,13 +1,13 @@
 import PlanPage from '../../support/page-objects/PlanPage';
 
 beforeEach(() => {
-  // ensure we are testing desktop
+  // Test the desktop viewport
   cy.viewport(1280, 720);
 });
 
 describe('Select Plans', () => {
   it('should select multiple plan combinations for HelloFresh AU', () => {
-    // data driven preferences
+    // Data driven preferences
     const preferences = [
       { id: "chefschoice" },
       { id: "veggie" },
@@ -18,8 +18,8 @@ describe('Select Plans', () => {
     const planPage = new PlanPage();
     planPage.visitAU();
     // assert that the plan widget exists in the DOM and is visible
-    planPage.getPlans().should('exist');
-    planPage.getPlans().should('be.visible');
+    planPage.getPlanWidget().should('exist');
+    planPage.getPlanWidget().should('be.visible');
     // click through each preference on the page
     cy.wrap(preferences).each((preference) => {
       // assert that each preference exists in the DOM and is visible
@@ -47,7 +47,7 @@ describe('Select Plans', () => {
   });
 
   it('should select multiple plan combinations for HelloFresh US', () => {
-    // data driven preferences
+    // Data driven preferences
     const preferences = [
       { id: "chefschoice" },
       { id: "veggie" },
@@ -60,8 +60,8 @@ describe('Select Plans', () => {
     const planPage = new PlanPage();
     planPage.visitUS();
     // assert that the plan widget exists in the DOM and is visible
-    planPage.getPlans().should('exist');
-    planPage.getPlans().should('be.visible');
+    planPage.getPlanWidget().should('exist');
+    planPage.getPlanWidget().should('be.visible');
     // click through each preference on the page
     cy.wrap(preferences).each((preference) => {
       // assert that each preference exists in the DOM and is visible
