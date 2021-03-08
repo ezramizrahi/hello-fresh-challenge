@@ -8,7 +8,9 @@
     "integration": "cypress run --browser chrome --spec \"cypress/integration/**/*\"",
     "merge-reports": "npx mochawesome-merge mochawesome-report/mochawesome.json > mochawesome-report/output.json",
     "html-report": "marge mochawesome-report/mochawesome.json",
-    "test": "npm run cleanup && npm run integration; npm run merge-reports && npm run html-report"
+    "test": "npm run cleanup && npm run integration; npm run merge-reports && npm run html-report",
+    "report:merge": "mochawesome-merge mochawesome-report/*.json > index.json",
+    "report:generate": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
   },
   "author": "ezra mizrahi",
   "license": "ISC",
