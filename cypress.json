@@ -1,1 +1,11 @@
-{}
+{
+  "numTestsKeptInMemory": 1,
+  "video": false,
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "mochawesome-report",
+    "overwrite": false,
+    "html": false,
+    "json": true
+  }
+}

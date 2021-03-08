@@ -1,0 +1,123 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-03-08T02:26:27.931Z",
+    "end": "2021-03-08T02:26:27.931Z",
+    "duration": 24232,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "66b5eeb0-1047-48fd-aa09-39c8c0a6ec07",
+      "title": "",
+      "fullFile": "cypress/integration/plan-page/plan-page.spec.js",
+      "file": "cypress/integration/plan-page/plan-page.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d2a36c5b-46ed-431c-9e1d-13ba2cbbaab7",
+          "title": "Select Plans",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should select plan combinations for HelloFresh AU",
+              "fullTitle": "Select Plans should select plan combinations for HelloFresh AU",
+              "timedOut": null,
+              "duration": 8883,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// data driven preferences\nvar preferences = [{\n  id: \"chefschoice\"\n}, {\n  id: \"veggie\"\n}, {\n  id: \"family\"\n}, {\n  id: \"lowcalorie\"\n}];\nvar planPage = new _PlanPage[\"default\"]();\nplanPage.visitAU(); // assert that the plan widget exists in the DOM and is visible\nplanPage.getPlans().should('exist');\nplanPage.getPlans().should('be.visible'); // click through each preference on the page\ncy.wrap(preferences).each(function (preference) {\n  // assert that each preference exists in the DOM and is visible\n  // before clicking on it\n  planPage.selectYourPreference(preference.id).should('exist');\n  planPage.selectYourPreference(preference.id).should('be.visible');\n  planPage.selectYourPreference(preference.id).click(); // clicks through all Number of People options\n  planPage.selectAllPeople(); // clicks through all Recipes per Week options\n  planPage.selectAllRecipes(); // check that Price Per Serving is not empty\n  // and log the price\n  planPage.getPrice().should('not.be.empty');\n  planPage.getPrice().then(function ($price) {\n    cy.log($price.text());\n  }); // check that Shipping cost is not empty\n  // and log the shipping cost\n  planPage.getShippingCost().should('not.be.empty');\n  planPage.getShippingCost().then(function ($shipping) {\n    cy.log($shipping.text());\n  });\n});",
+              "err": {},
+              "uuid": "3d569d02-ac70-4fbc-ad9e-4f0ef3270628",
+              "parentUUID": "d2a36c5b-46ed-431c-9e1d-13ba2cbbaab7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should select plan combinations for HelloFresh US",
+              "fullTitle": "Select Plans should select plan combinations for HelloFresh US",
+              "timedOut": null,
+              "duration": 15349,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// data driven preferences\nvar preferences = [{\n  id: \"chefschoice\"\n}, {\n  id: \"veggie\"\n}, {\n  id: \"family\"\n}, {\n  id: \"fit\"\n}, {\n  id: \"quick\"\n}, {\n  id: \"pescatarian\"\n}];\nvar planPage = new _PlanPage[\"default\"]();\nplanPage.visitUS(); // assert that the plan widget exists in the DOM and is visible\nplanPage.getPlans().should('exist');\nplanPage.getPlans().should('be.visible'); // click through each preference on the page\ncy.wrap(preferences).each(function (preference) {\n  // assert that each preference exists in the DOM and is visible\n  // before clicking on it\n  planPage.selectYourPreference(preference.id).should('exist');\n  planPage.selectYourPreference(preference.id).should('be.visible');\n  planPage.selectYourPreference(preference.id).click(); // clicks through all Number of People options\n  planPage.selectAllPeople(); // clicks through all Recipes per Week options\n  planPage.selectAllRecipes(); // check that Price Per Serving is not empty\n  // and log the price\n  planPage.getPrice().should('not.be.empty');\n  planPage.getPrice().then(function ($price) {\n    cy.log($price.text());\n  }); // check that Shipping cost is not empty\n  // and log the shipping cost\n  planPage.getShippingCost().should('not.be.empty');\n  planPage.getShippingCost().then(function ($shipping) {\n    cy.log($shipping.text());\n  });\n});",
+              "err": {},
+              "uuid": "d1445ef9-2bd8-4fad-a38d-0e9de7c3ec42",
+              "parentUUID": "d2a36c5b-46ed-431c-9e1d-13ba2cbbaab7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3d569d02-ac70-4fbc-ad9e-4f0ef3270628",
+            "d1445ef9-2bd8-4fad-a38d-0e9de7c3ec42"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 24232,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.0.1"
+    }
+  }
+}
