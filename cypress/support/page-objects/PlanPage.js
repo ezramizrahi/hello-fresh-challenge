@@ -15,10 +15,6 @@ class PlanPage {
     return cy.get('[data-translation-id="funnel.plansWidget.title"]');
   };
 
-  getOrderReviewTitle() {
-    return cy.get('[data-translation-id="funnel.plansWidget.orderReview.title"]');
-  };
-
   // Returns the plan widget element
   getPlanWidget() {
     return cy.get('[data-test-id="desktop-plans-widget"]');
@@ -32,13 +28,6 @@ class PlanPage {
     return cy.get(`button[data-test-id*="${preference}"]`);
   };
 
-  // Select "Number of people"
-  selectPeople(n) {
-    cy.get('[data-test-id="plans-widget-container"]').within(($widget) => {
-      cy.get(`button[data-test-id="size-button-selectors-${n}"]`).click();
-    });
-  };
-
   // Clicks on each "Number of people" button
   selectAllPeople() {
     cy.get('[data-test-id="size-selector"]').within(($people) => {
@@ -46,11 +35,6 @@ class PlanPage {
         cy.wrap($button).click({force: true});
       });
     });
-  };
-
-  // Select "Recipes per week"
-  selectRecipesPerWeek(n) {
-    return cy.get(`button[data-test-id="meal-button-selectors-${n}"]`);
   };
 
   // Click on each "Recipe per week" butto
