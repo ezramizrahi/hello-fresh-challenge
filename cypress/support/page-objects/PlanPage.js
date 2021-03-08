@@ -10,6 +10,15 @@ class PlanPage {
     cy.visit(Cypress.env('url_us'));
   };
 
+  // Return plan page title
+  getPlanPageTitle() {
+    return cy.get('[data-translation-id="funnel.plansWidget.title"]');
+  };
+
+  getOrderReviewTitle() {
+    return cy.get('[data-translation-id="funnel.plansWidget.orderReview.title"]');
+  };
+
   // Returns the plan widget element
   getPlanWidget() {
     return cy.get('[data-test-id="desktop-plans-widget"]');
@@ -30,7 +39,7 @@ class PlanPage {
     });
   };
 
-  // Clicks through all possible "Number of people" selections
+  // Clicks on each "Number of people" button
   selectAllPeople() {
     cy.get('[data-test-id="size-selector"]').within(($people) => {
       cy.get('button').each(($button) => {
@@ -44,7 +53,7 @@ class PlanPage {
     return cy.get(`button[data-test-id="meal-button-selectors-${n}"]`);
   };
 
-  // Click on each "Recipe per week" button
+  // Click on each "Recipe per week" butto
   selectAllRecipes() {
     cy.get('[data-test-id="meal-button-selectors"]').within(($meal) => {
       cy.get('button').each(($button) => {

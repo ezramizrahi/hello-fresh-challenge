@@ -2,7 +2,8 @@ import PlanPage from '../../support/page-objects/PlanPage';
 
 describe('Select Plans', () => {
   it('should select multiple plan combinations for HelloFresh AU', () => {
-    // Data driven preferences
+    // Data driven test data
+    const planPageTitle = 'Personalise Your Plan';
     const preferences = [
       { id: "chefschoice" },
       { id: "veggie" },
@@ -12,17 +13,21 @@ describe('Select Plans', () => {
 
     const planPage = new PlanPage();
     planPage.visitAU();
-    // assert that the plan widget exists in the DOM and is visible
+    // check that the plan page title exists in the DOM and is visible
+    planPage.getPlanPageTitle().should('exist');
+    planPage.getPlanPageTitle().should('be.visible');
+    planPage.getPlanPageTitle().should('contain', planPageTitle);
+    // check that the plan widget exists in the DOM and is visible
     planPage.getPlanWidget().should('exist');
     planPage.getPlanWidget().should('be.visible');
     // click through each preference on the page
     cy.wrap(preferences).each((preference) => {
-      // assert that each preference exists in the DOM and is visible
+      // check that each preference exists in the DOM and is visible
       // before clicking on it
       planPage.selectYourPreference(preference.id).should('exist');
       planPage.selectYourPreference(preference.id).should('be.visible');
       planPage.selectYourPreference(preference.id).click({force: true});
-      // assert that "data-test-is-active" is true after the element
+      // check that "data-test-is-active" is true after the element
       // has been clicked
       planPage.selectYourPreference(preference.id).then(($preference) => {
         cy.get($preference).invoke('attr', 'data-test-is-active').should('contain', 'true');
@@ -47,7 +52,8 @@ describe('Select Plans', () => {
   });
 
   it('should select multiple plan combinations for HelloFresh US', () => {
-    // Data driven preferences
+    // Data driven test data
+    const planPageTitle = 'Personalize Your Plan';
     const preferences = [
       { id: "chefschoice" },
       { id: "veggie" },
@@ -59,17 +65,21 @@ describe('Select Plans', () => {
 
     const planPage = new PlanPage();
     planPage.visitUS();
-    // assert that the plan widget exists in the DOM and is visible
+    // check that the plan page title exists in the DOM and is visible
+    planPage.getPlanPageTitle().should('exist');
+    planPage.getPlanPageTitle().should('be.visible');
+    planPage.getPlanPageTitle().should('contain', planPageTitle);
+    // check that the plan widget exists in the DOM and is visible
     planPage.getPlanWidget().should('exist');
     planPage.getPlanWidget().should('be.visible');
     // click through each preference on the page
     cy.wrap(preferences).each((preference) => {
-      // assert that each preference exists in the DOM and is visible
+      // check that each preference exists in the DOM and is visible
       // before clicking on it
       planPage.selectYourPreference(preference.id).should('exist');
       planPage.selectYourPreference(preference.id).should('be.visible');
       planPage.selectYourPreference(preference.id).click({force: true});
-      // assert that "data-test-is-active" is true after the element
+      // check that "data-test-is-active" is true after the element
       // has been clicked
       planPage.selectYourPreference(preference.id).then(($preference) => {
         cy.get($preference).invoke('attr', 'data-test-is-active').should('contain', 'true');
