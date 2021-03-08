@@ -1,10 +1,5 @@
 import PlanPage from '../../support/page-objects/PlanPage';
 
-beforeEach(() => {
-  // Test the desktop viewport
-  cy.viewport(1280, 720);
-});
-
 describe('Select Plans', () => {
   it('should select multiple plan combinations for HelloFresh AU', () => {
     // Data driven preferences
