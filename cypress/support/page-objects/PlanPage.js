@@ -2,12 +2,12 @@ class PlanPage {
 
   // Visit HelloFresh AU
   visitAU() {
-    cy.visit('https://www.hellofresh.com.au/plans');
+    cy.visit(Cypress.env('url_au'));
   };
 
   // Visit HelloFresh US
   visitUS() {
-    cy.visit('https://www.hellofresh.com/plans');
+    cy.visit(Cypress.env('url_us'));
   };
 
   // Returns the plan widget element

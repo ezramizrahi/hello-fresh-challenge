@@ -22,6 +22,11 @@ describe('Select Plans', () => {
       planPage.selectYourPreference(preference.id).should('exist');
       planPage.selectYourPreference(preference.id).should('be.visible');
       planPage.selectYourPreference(preference.id).click({force: true});
+      // assert that "data-test-is-active" is true after the element
+      // has been clicked
+      planPage.selectYourPreference(preference.id).then(($preference) => {
+        cy.get($preference).invoke('attr', 'data-test-is-active').should('contain', 'true');
+      });
       // clicks through all Number of People options
       planPage.selectAllPeople();
       // clicks through all Recipes per Week options
@@ -64,6 +69,11 @@ describe('Select Plans', () => {
       planPage.selectYourPreference(preference.id).should('exist');
       planPage.selectYourPreference(preference.id).should('be.visible');
       planPage.selectYourPreference(preference.id).click({force: true});
+      // assert that "data-test-is-active" is true after the element
+      // has been clicked
+      planPage.selectYourPreference(preference.id).then(($preference) => {
+        cy.get($preference).invoke('attr', 'data-test-is-active').should('contain', 'true');
+      });
       // clicks through all Number of People options
       planPage.selectAllPeople();
       // clicks through all Recipes per Week options

@@ -1,4 +1,8 @@
 {
+  "env": {
+    "url_au": "https://www.hellofresh.com.au/plans",
+    "url_us": "https://www.hellofresh.com/plans"
+  },
   "numTestsKeptInMemory": 1,
   "video": false,
   "reporter": "mochawesome",
