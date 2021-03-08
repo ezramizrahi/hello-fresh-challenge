@@ -6,7 +6,6 @@ beforeEach(() => {
 });
 
 describe('Select Plans', () => {
-
   it('should select multiple plan combinations for HelloFresh AU', () => {
     // data driven preferences
     const preferences = [
