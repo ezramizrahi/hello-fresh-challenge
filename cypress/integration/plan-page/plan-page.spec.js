@@ -8,6 +8,7 @@ describe('Select Plans', () => {
   urls.forEach((url) => {
     // Create the test name dynamically using the url
     it(`should select multiple plan combinations on ${url}`, () => {
+      // Preference data
       const preferencesAU  = [
         { id: "chefschoice" },
         { id: "veggie" },
