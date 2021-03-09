@@ -4,7 +4,7 @@ describe('Select Plans', () => {
   // URLs for HelloFresh AU and HelloFresh US
   const urls = ['https://www.hellofresh.com.au/plans', 'https://www.hellofresh.com/plans'];
 
-  // We will run the same test on each HelloFresh domain
+  // Run the same test on each HelloFresh domain
   urls.forEach((url) => {
     // Create the test name dynamically using the url
     it(`should select multiple plan combinations on ${url}`, () => {
