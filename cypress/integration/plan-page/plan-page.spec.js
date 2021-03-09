@@ -1,8 +1,12 @@
 import PlanPage from '../../support/page-objects/PlanPage';
 
 describe('Select Plans', () => {
+  // URLs for HelloFresh AU and HelloFresh US
   const urls = ['https://www.hellofresh.com.au/plans', 'https://www.hellofresh.com/plans'];
+
+  // We will run the same test on each HelloFresh domain
   urls.forEach((url) => {
+    // Create the test name dynamically using the url
     it(`should select multiple plan combinations on ${url}`, () => {
       const preferencesAU  = [
         { id: "chefschoice" },
@@ -19,11 +23,14 @@ describe('Select Plans', () => {
         { id: "pescatarian" }
       ];
 
+      // Create a new PlanPage object
       const planPage = new PlanPage();
 
+      // Visit the URL
       cy.visit(url)
 
-      // preferences are different on AU vs US domains
+      // Preferences are different on AU vs US domains
+      // We will set the preference based on the domain name
       const preferences = url.includes('.com.au') ? preferencesAU : preferencesUS;
 
       // check that the plan widget exists in the DOM and is visible
