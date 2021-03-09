@@ -33,3 +33,7 @@ For both the AU and US domains, I select each plan option in a data driven way b
 The E2E tests are run on every pull request/merge to the master/main branch via a GitHub actions worfklow. Below is a diagram of this workflow:
 
 ![Workflow](workflow.svg)
+
+## Future Improvements
+* Using a data driven strategy, check that the price and shipping cost are correct for each plan combination selected
+* Using a data driven strategy, check that the text on both domains has been localized correctly (e.g. "customize" vs. "customise")
