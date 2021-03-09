@@ -26,13 +26,10 @@ In this task I have aimed to follow best practices within testing and within the
 
 My selector strategy targets elements using the `data-test-id=` and `data-translation-id=` attributes.
 
-Given that the requirements of this state that the tests need to run on both the HelloFresh AU and US domains, I have split the `plan-page.spec.js` test into two sections - one for the AU domain, and one for the US domain. There is some duplication, but it works. The URLs for each domain are stored as `env` variables in the `cypress.json` file.
+Given that the requirements of this state that the test needs to run on both the HelloFresh AU and US domains, I have used `forEach` to run the same test on both URLs in the `plan-page.spec.js` test file.
 
 For both the AU and US domains, I select each plan option in a data driven way by referencing a `preferences` variable that contains the different preferences for each domain. Once clicked, I check that `data-test-is-active` is `true`. I also click through each "Number of people" and "Recipe per week" option for every meal preference. Lastly, I check that the price and shipping cost are not empty, and I log their values in the Cypress test runner.
 
 The E2E tests are run on every pull request/merge to the master/main branch via a GitHub actions worfklow. Below is a diagram of this workflow:
 
 ![Workflow](workflow.svg)
-
-## Alternative Design
-As stated above, there is duplication in my `plan-page.spec.js` that is not easily scalable over time. At the moment, splitting the AU and US tests into two separate `it(...)` test blocks works, but there is likely a better solution/architectural design.
